@@ -1,14 +1,11 @@
 import { PrimeReactProvider } from "primereact/api";
-import { Header } from "./Components/Header";
-import { InputForm } from "./Components/InputForm";
-import { ItemsList } from "./Components/ItemsList";
-import { Stats } from "./Components/Stats";
+import { Header } from "./Header";
+import { InputForm } from "./InputForm";
+import { ItemsList } from "./ItemsList";
+import { Stats } from "./Stats";
 import { useState } from "react";
 function App() {
-  const [packingList, setPackingList] = useState([
-    { id: 1, description: "Passports", quantity: 2, packed: false },
-    { id: 2, description: "Socks", quantity: 12, packed: false },
-  ]);
+  const [packingList, setPackingList] = useState([]);
 
   const addToPackingList = (item) => {
     setPackingList((currentState) => [...currentState, item]);
@@ -29,6 +26,13 @@ function App() {
       )
     );
   };
+
+  const deleteAllItemsFromList = () => {
+    const confirmed = window.confirm(
+      "Are you sure, you want to delete all items ?"
+    );
+    if (confirmed) setPackingList([]);
+  };
   return (
     <PrimeReactProvider>
       <Header />
@@ -40,7 +44,10 @@ function App() {
             deleteFromList={deleteFromList}
             updatePackingStatus={updatePackingStatus}
           ></ItemsList>
-          <Stats packingList={packingList}></Stats>
+          <Stats
+            packingList={packingList}
+            deleteAll={deleteAllItemsFromList}
+          ></Stats>
         </main>
       </section>
     </PrimeReactProvider>

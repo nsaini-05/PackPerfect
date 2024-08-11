@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
+import { Divider } from "primereact/divider";
+import { FloatLabel } from "primereact/floatlabel";
 export const InputForm = ({ addToList }) => {
   const [itemName, setItemName] = useState("");
   const [itemQuantity, setItemQuantity] = useState(1);
@@ -19,14 +21,14 @@ export const InputForm = ({ addToList }) => {
     setItemQuantity(1);
   };
   return (
-    <div>
+    <div className="mb-8">
       <form
-        className="flex 	justify-content-center	gap-2 mb-8"
+        className="flex justify-content-center	gap-2"
         onSubmit={(e) => handleFormSubmit(e)}
       >
         <InputText
           type="text"
-          className="p-inputtext-lg"
+          className="text-2xl"
           placeholder="Item Name"
           value={itemName}
           onChange={(e) => setItemName(e.target.value)}
@@ -35,11 +37,12 @@ export const InputForm = ({ addToList }) => {
           value={itemQuantity}
           options={Array.from({ length: 20 }, (_, i) => 1 + i)}
           placeholder="Select a Quantity"
-          className="p-inputtext-lg"
+          styleClass="text-2xl"
           onChange={(e) => Number(setItemQuantity(e.target.value))}
         />
-        <Button label="Submit" disabled={!itemName} />
+        <Button label="Submit" className="text-2xl" disabled={!itemName} />
       </form>
+      <Divider />
     </div>
   );
 };
