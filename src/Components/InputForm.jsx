@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
-export const InputForm = () => {
+export const InputForm = ({ addToList }) => {
   const [itemName, setItemName] = useState("");
   const [itemQuantity, setItemQuantity] = useState(1);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    const newItem = {
+      id: Date.now(),
+      description: itemName,
+      quantity: itemQuantity,
+      packed: false,
+    };
+    addToList(newItem);
     setItemName("");
     setItemQuantity(1);
   };
