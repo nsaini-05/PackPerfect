@@ -48,14 +48,14 @@ export const ItemsList = ({
 
   return (
     <div className="mb-8">
-      <div className=" card flex justify-content-right">
+      <div className=" card flex justify-content-center ">
         <Dropdown
           value={sortType}
           options={sortTypes}
           optionLabel="name"
           optionValue="name"
           placeholder="Sort Lists By"
-          className=" text-4xl w-full md:w-14rem mb-4 "
+          className=" text-4xl  mb-4 "
           onChange={(e) => {
             setSortType(e.target.value);
           }}

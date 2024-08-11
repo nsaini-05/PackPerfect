@@ -14,14 +14,24 @@ html {
   font-size: 1.5rem;
 }
 
-@media (max-width: 84em) {
+@media (max-width: 80em) {
   html {
     font-size: 9px;
   }
 }
 
-@media (max-width: 70em) {
+@media (max-width: 74em) {
   html {
     font-size: 8px;
+  }
+}
+
+@media (max-width: 64em) {
+  html {
+    font-size: 7px;
+  }
+  .grid {
+    flex-direction: column;
+    align-items: center;
   }
 }

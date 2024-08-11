@@ -36,7 +36,7 @@ function App() {
   return (
     <PrimeReactProvider>
       <Header />
-      <section className="pt-7	pb-9 " style={{ minWidth: "130rem" }}>
+      <section className="pt-7	pb-9 ">
         <main className="m-0 m-auto" style={{ maxWidth: "130rem" }}>
           <InputForm addToList={addToPackingList}></InputForm>
           <ItemsList
