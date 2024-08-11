@@ -7,8 +7,8 @@ import { useState } from "react";
 function App() {
   const [packingList, setPackingList] = useState([]);
 
-  const addToPackingList = (item) => {
-    setPackingList((currentState) => [...currentState, item]);
+  const addToPackingList = (itemToInsert) => {
+    setPackingList((currentState) => [...currentState, itemToInsert]);
   };
 
   const deleteFromList = (item) => {
